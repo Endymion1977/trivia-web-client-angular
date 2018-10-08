@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 import { OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
 
@@ -28,6 +29,7 @@ import { TriviaGameComponent } from './trivia-game/trivia-game.component';
   ],
   imports: [
       BrowserModule,
+      HttpModule,
       RouterModule.forRoot(routes),
       OktaAuthModule.initAuth(oktaConfig)
   ],

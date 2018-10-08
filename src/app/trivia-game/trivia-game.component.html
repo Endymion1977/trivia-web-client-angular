@@ -1,3 +1,29 @@
-<p>
-  trivia-game works!
-</p>
+<div>
+    <span class="help is-info"  *ngIf="isLoading">Loading...</span>
+    <table class="table" *ngIf="!isLoading">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Answers</th>
+                <th>Points</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let player of players">
+                <td>{{ player.id }}</td>
+                <td>{{ player.name }}</td>
+                <td>{{ player.answers }}</td>
+                <td>{{ player.points }}</td>
+                <td>
+                    <form>
+                        <button class="button is-primary">Correct Answer</button>
+                        &nbsp;
+                        <button class="button is-primary">Wrong Answer</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
