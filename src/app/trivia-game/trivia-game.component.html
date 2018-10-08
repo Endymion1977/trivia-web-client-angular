@@ -29,7 +29,7 @@
     <app-player-form (playerAdded)="appendPlayer($event)"></app-player-form>
     </div>
     <div class="column">
-        <div class="card">
+        <div class="card" *ngIf="question?.question">
           <div class="card-content">
             <button class="button is-primary" (click)="getQuestion()">Refresh Question</button>
             <p class="title">
