@@ -4,6 +4,10 @@ import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 import { OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
 
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { TriviaGameComponent } from './trivia-game/trivia-game.component';
+
 const oktaConfig = {
   issuer: 'https://dev-354685.oktapreview.com/oauth2/default',
   redirectUri: 'http://localhost:4200/implicit/callback',
@@ -16,10 +20,6 @@ const routes: Routes = [
     { path: 'implicit/callback', component: OktaCallbackComponent },
     { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
-
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { TriviaGameComponent } from './trivia-game/trivia-game.component';
 
 @NgModule({
   declarations: [

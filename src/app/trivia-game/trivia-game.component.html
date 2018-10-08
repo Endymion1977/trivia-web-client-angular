@@ -1,6 +1,7 @@
 <div>
-    <span class="help is-info"  *ngIf="isLoading">Loading...</span>
-    <table class="table" *ngIf="!isLoading">
+    <span class="help is-info" *ngIf="isLoading">Loading...</span>
+    <span class="help is-error" *ngIf="errorMessage">{{ errorMessage }}</span>
+    <table class="table" *ngIf="!isLoading && !errorMessage">
         <thead>
             <tr>
                 <th>ID</th>

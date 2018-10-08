@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OktaAuthService } from '@okta/okta-angular';
 import { Player, PlayerService } from '../player.service';
 import 'rxjs/Rx';
 
@@ -9,13 +10,15 @@ import 'rxjs/Rx';
 })
 export class TriviaGameComponent implements OnInit {
 
-  players: Player[];
-  errorMessage: string;
-  isLoading: boolean = true;
+    players: Player[];
+    errorMessage: string;
+    isLoading: boolean = true;
 
-  constructor(private playerService: PlayerService) { }
+    constructor(private playerService: PlayerService,
+                private oktaAuth: OktaAuthService) { }
 
-    ngOnInit() {
+    async ngOnInit() {
+        await this.oktaAuth.getAccessToken();
         this.getPlayers();
     }
 
@@ -24,10 +27,13 @@ export class TriviaGameComponent implements OnInit {
             .getPlayers()
             .subscribe(
                 players => {
-                    this.players = players;
-                    this.isLoading = false;
+                    this.players = players
+                    this.isLoading = false
+                },
+                error => {
+                    this.errorMessage = <any>error
+                    this.isLoading = false
                 }
-                error => this.errorMessage = <any>error
             );
     }
 
