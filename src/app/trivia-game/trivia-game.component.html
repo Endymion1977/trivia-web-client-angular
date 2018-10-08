@@ -18,11 +18,7 @@
                 <td>{{ player.answers }}</td>
                 <td>{{ player.points }}</td>
                 <td>
-                    <form>
-                        <button class="button is-primary">Correct Answer</button>
-                        &nbsp;
-                        <button class="button is-primary">Wrong Answer</button>
-                    </form>
+                    <button class="button is-primary" [class.is-loading]="isUpdating(player.id)" (click)="deletePlayer(player.id)">Delete Player</button>
                 </td>
             </tr>
         </tbody>
