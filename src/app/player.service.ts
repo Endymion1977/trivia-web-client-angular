@@ -57,4 +57,10 @@ export class PlayerService {
             new RequestOptions({ headers: this.headers })
         ).map(res => res.json());
     }
+
+    answer(id, data): Observable<Player> {
+        return this.http.post(API_URL + '/api/players/' + id + '/answers', data,
+            new RequestOptions({ headers: this.headers })
+        ).map(res => res.json().data);
+    }
 }
