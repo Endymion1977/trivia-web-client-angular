@@ -45,4 +45,11 @@ export class PlayerService {
             return modifiedResult;
         });
     }
+
+    addPlayer(player): Observable<Player> {
+        return this.http.post(API_URL + '/api/players', player,
+            new RequestOptions({ headers: this.headers })
+        ).map(res => res.json().data);
+    }
+
 }

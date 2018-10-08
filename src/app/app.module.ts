@@ -7,6 +7,7 @@ import { OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TriviaGameComponent } from './trivia-game/trivia-game.component';
+import { PlayerFormComponent } from './player-form/player-form.component';
 
 const oktaConfig = {
   issuer: 'https://dev-354685.oktapreview.com/oauth2/default',
@@ -25,7 +26,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    TriviaGameComponent
+    TriviaGameComponent,
+    PlayerFormComponent
   ],
   imports: [
       BrowserModule,

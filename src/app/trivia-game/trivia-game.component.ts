@@ -44,4 +44,8 @@ export class TriviaGameComponent implements OnInit {
     isUpdating(id): boolean {
         return this.findPlayer(id).isUpdating;
     }
+
+    appendPlayer(player: Player) {
+        this.players.push(player);
+    }
 }
