@@ -10,7 +10,7 @@ export class TriviaService {
 
     constructor(private http: Http) { }
 
-    getQuestion(): Observable {
+    getQuestion() {
         return this.http.get(TRIVIA_ENDPOINT)
         .map(res => res.json()[0]);
     }
