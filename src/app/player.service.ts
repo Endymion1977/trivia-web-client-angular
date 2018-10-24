@@ -55,7 +55,7 @@ export class PlayerService {
     deletePlayer(id): Observable<Player> {
         return this.http.delete(API_URL + '/api/players/' + id,
             new RequestOptions({ headers: this.headers })
-        ).map(res => res.json());
+        );
     }
 
     answer(id, data): Observable<Player> {
